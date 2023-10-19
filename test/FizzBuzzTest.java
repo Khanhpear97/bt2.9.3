@@ -100,8 +100,16 @@ class FizzBuzzTest {
 
     @Test
     public void testFizzBuzzHaveNumber5() {
-        int number = 35;
+        int number = 52;
         String expected = "Buzz";
+        String result = FizzBuzz.checkFizzBuzz(number);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testFizzBuzzHaveNumber3And5() {
+        int number = 53;
+        String expected = "FizzBuzz";
         String result = FizzBuzz.checkFizzBuzz(number);
         assertEquals(expected, result);
     }

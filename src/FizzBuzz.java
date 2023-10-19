@@ -5,7 +5,9 @@ public class FizzBuzz {
             return "Data number not exactly";
         }
         boolean isFizzBuzz = number % 3 == 0 && number % 5 == 0;
-        if (isFizzBuzz) {
+        boolean numberContains3 = Integer.toString(number).contains("3");
+        boolean numberContains5 = Integer.toString(number).contains("5");
+        if (isFizzBuzz || numberContains3 && numberContains5) {
             string = "FizzBuzz";
         } else {
             boolean isFizz = number % 3 == 0;
@@ -15,12 +17,16 @@ public class FizzBuzz {
                 boolean isBuzz = number % 5 == 0;
                 if (isBuzz) {
                     string = "Buzz";
-                } else if (Integer.toString(number).contains("3")) {
-                    string = "Fizz";
-                } else if (Integer.toString(number).contains("5")) {
-                    string = "Buzz";
                 } else {
-                    string += fizzBuzzTranslate(number);
+                    if (numberContains3) {
+                        string = "Fizz";
+                    } else {
+                        if (numberContains5) {
+                            string = "Buzz";
+                        } else {
+                            string += fizzBuzzTranslate(number);
+                        }
+                    }
                 }
             }
         }
